@@ -20,31 +20,31 @@ class slideimg extends StatelessWidget {
                   child: CarouselSlider(
                     items: img = [
                       Image.asset(
-                        "images/slide1.jpg",
+                        "slide1.jpg",
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "images/slide2.jpg",
+                        "slide2.jpg",
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "images/slide3.jpg",
+                        "slide3.jpg",
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "images/slide1.jpg",
+                        "slide1.jpg",
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "images/slide2.jpg",
+                        "slide2.jpg",
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "images/slide3.jpg",
+                        "slide3.jpg",
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "images/slide1.jpg",
+                        "slide1.jpg",
                         fit: BoxFit.cover,
                       ),
                     ],

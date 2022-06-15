@@ -25,73 +25,95 @@ class Auth_vrfy extends StatelessWidget {
               ),
             ),
             SizedBox(
-                height: 50,
-                width: 50,
-                child: TextField(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  style: Theme.of(context).textTheme.headline6,
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                )),
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 55),
+              child: Center(
+                child: Container(
+                  child: Row(
+                    children: [
+                      SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: TextField(
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
+                            style: Theme.of(context).textTheme.headline6,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(1),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                          )),
+                      SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: TextField(
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
+                            style: Theme.of(context).textTheme.headline6,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(1),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                          )),
+                      SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: TextField(
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
+                            style: Theme.of(context).textTheme.headline6,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(1),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                          )),
+                      SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: TextField(
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
+                            style: Theme.of(context).textTheme.headline6,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(1),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
-                height: 50,
-                width: 50,
-                child: TextField(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  style: Theme.of(context).textTheme.headline6,
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                )),
-            SizedBox(
-                height: 50,
-                width: 50,
-                child: TextField(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  style: Theme.of(context).textTheme.headline6,
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                )),
-            SizedBox(
-                height: 50,
-                width: 50,
-                child: TextField(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  style: Theme.of(context).textTheme.headline6,
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                )),
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).popAndPushNamed('/auth_vrfy');
+                },
+                child: Text("Log-in")),
           ],
         ),
       )),

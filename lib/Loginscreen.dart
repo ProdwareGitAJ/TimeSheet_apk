@@ -66,7 +66,7 @@ class login_screen extends StatelessWidget {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).popAndPushNamed('/home');
+                          Navigator.of(context).popAndPushNamed('/auth_vrfy');
                         },
                         child: Text("Log-in")),
                     SizedBox(

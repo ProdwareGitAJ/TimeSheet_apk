@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/Homescreen.dart';
+import 'package:flutter_prj_1/nav.dart';
 import 'package:flutter_prj_1/verify.dart';
 import 'Loginscreen.dart';
 import 'package:flutter_prj_1/Drawer_scr.dart';
@@ -12,6 +13,6 @@ void main() {
 class projx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return (Auth_vrfy());
+    return (nav());
   }
 }

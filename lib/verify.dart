@@ -111,7 +111,7 @@ class Auth_vrfy extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).popAndPushNamed('/auth_vrfy');
+                  Navigator.of(context).popAndPushNamed('/home');
                 },
                 child: Text("Log-in")),
           ],

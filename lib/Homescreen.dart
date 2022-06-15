@@ -9,24 +9,32 @@ class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
-      initialRoute: '/',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Home Page"),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/');
-              },
-              icon: Icon(Icons.power_settings_new),
+          appBar: AppBar(
+            title: Text("Home Page"),
+            centerTitle: true,
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).popAndPushNamed('/');
+                },
+                icon: Icon(Icons.power_settings_new),
+              ),
+            ],
+          ),
+          drawer: drawersrc(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: slideimg(),
+                )
+              ],
             ),
-          ],
-        ),
-        drawer: drawersrc(),
-        body: slideimg(),
-      ),
+          )),
     ));
   }
 }

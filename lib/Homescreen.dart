@@ -19,7 +19,10 @@ class home extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).popAndPushNamed('/');
                 },
-                icon: Icon(Icons.power_settings_new),
+                icon: Icon(
+                  Icons.power_settings_new,
+                  color: Colors.red.shade700,
+                ),
               ),
             ],
           ),

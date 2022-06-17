@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prj_1/Loginscreen.dart';
 
 class drawersrc extends StatelessWidget {
   const drawersrc({Key? key}) : super(key: key);
@@ -6,6 +7,7 @@ class drawersrc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (Container(
+      width: MediaQuery.of(context).size.width * 0.70,
       child: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -14,31 +16,55 @@ class drawersrc extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Center(
-                child: Text(
-                  'Menu bar',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 211, 12, 12),
-                    fontSize: 34,
-                  ),
+              child: Center(child: Icon(Icons.account_circle, size: 150)),
+            ),
+            InkWell(
+              child: const ListTile(
+                title: Text("Dashboard"),
+                leading: Icon(
+                  Icons.space_dashboard,
+                  color: Colors.blue,
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
+            InkWell(
+              child: const ListTile(
+                title: Text("Timesheet"),
+                leading: Icon(
+                  Icons.edit_calendar,
+                  color: Colors.blue,
+                ),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+            InkWell(
+              child: const ListTile(
+                title: Text("Service"),
+                leading: Icon(
+                  Icons.settings_accessibility,
+                  color: Colors.blue,
+                ),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+            InkWell(
+              child: const ListTile(
+                title: Text("Ticket Raise"),
+                leading: Icon(
+                  Icons.receipt,
+                  color: Colors.red,
+                ),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.add_reaction_sharp),
-              title: Text('Employee'),
+            InkWell(
+              child: const ListTile(
+                title: Text("Profile"),
+                leading: Icon(Icons.space_dashboard),
+              ),
+            ),
+            InkWell(
+              child: const ListTile(
+                title: Text("Work Contact"),
+                leading: Icon(Icons.space_dashboard),
+              ),
             ),
           ],
         ),

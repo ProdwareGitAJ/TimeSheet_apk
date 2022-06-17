@@ -15,6 +15,7 @@ class home extends StatelessWidget {
             title: Text("Home Page"),
             centerTitle: true,
             actions: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
               IconButton(
                 onPressed: () {
                   Navigator.of(context).popAndPushNamed('/');

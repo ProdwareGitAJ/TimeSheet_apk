@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prj_1/Homescreen.dart';
 import 'package:flutter_prj_1/Loginscreen.dart';
 
 class drawersrc extends StatelessWidget {
@@ -11,19 +12,28 @@ class drawersrc extends StatelessWidget {
       child: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: const <Widget>[
+          children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Center(child: Icon(Icons.account_circle, size: 150)),
+              child: Center(
+                  child: Icon(
+                Icons.account_circle,
+                size: 150,
+                color: Colors.cyan.shade100,
+              )),
             ),
             InkWell(
-              child: const ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => home()));
+              },
+              child: ListTile(
                 title: Text("Dashboard"),
                 leading: Icon(
                   Icons.space_dashboard,
-                  color: Colors.blue,
+                  color: Colors.blue.shade900,
                 ),
               ),
             ),
@@ -41,7 +51,7 @@ class drawersrc extends StatelessWidget {
                 title: Text("Service"),
                 leading: Icon(
                   Icons.settings_accessibility,
-                  color: Colors.blue,
+                  color: Colors.green,
                 ),
               ),
             ),
@@ -57,13 +67,19 @@ class drawersrc extends StatelessWidget {
             InkWell(
               child: const ListTile(
                 title: Text("Profile"),
-                leading: Icon(Icons.space_dashboard),
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.blue,
+                ),
               ),
             ),
             InkWell(
               child: const ListTile(
                 title: Text("Work Contact"),
-                leading: Icon(Icons.space_dashboard),
+                leading: Icon(
+                  Icons.contact_page,
+                  color: Colors.orangeAccent,
+                ),
               ),
             ),
           ],

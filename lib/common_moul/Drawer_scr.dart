@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
+import 'package:flutter_prj_1/drawer_items/timesheet%20.dart';
 
 class drawersrc extends StatelessWidget {
   const drawersrc({Key? key}) : super(key: key);
@@ -37,6 +38,10 @@ class drawersrc extends StatelessWidget {
               ),
             ),
             InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => timeSheet()));
+              },
               child: const ListTile(
                 title: Text("Timesheet"),
                 leading: Icon(

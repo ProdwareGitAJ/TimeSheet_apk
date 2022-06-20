@@ -14,7 +14,7 @@ class slideimg extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: SizedBox(
+              child: Container(
                   height: 225,
                   width: double.infinity,
                   child: CarouselSlider(

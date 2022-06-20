@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
+import 'package:flutter_prj_1/drawer_items/timesheet%20.dart';
 import '../login_auth/Loginscreen.dart';
 import '../login_auth/verify.dart';
 
@@ -15,6 +16,7 @@ class nav extends StatelessWidget {
         '/': (context) => login_screen(),
         '/home': (context) => home(),
         '/auth_vrfy': (context) => Auth_vrfy(),
+        '/timesheet': (context) => timeSheet(),
       },
     ));
   }

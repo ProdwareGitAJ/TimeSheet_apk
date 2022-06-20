@@ -17,16 +17,14 @@ class home extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+                  height: 230,
                   child: slideimg(),
                 ),
                 SizedBox(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  child: Card(child: Text("Upcomming Birthdays")),
-                ),
+                    child: ElevatedButton(
+                        onPressed: (() {}), child: Text("GET IT"))),
               ],
             ),
           )),

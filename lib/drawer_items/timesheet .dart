@@ -11,7 +11,7 @@ class timeSheet extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            title: Text("Home Page"),
+            title: Text("Timesheet"),
             centerTitle: true,
             actions: [
               IconButton(
@@ -29,11 +29,9 @@ class timeSheet extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: slideimg(),
-                )
+                Card(
+                  color: Colors.grey,
+                ),
               ],
             ),
           )),

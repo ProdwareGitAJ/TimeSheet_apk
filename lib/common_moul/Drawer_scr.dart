@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prj_1/Homescreen.dart';
-import 'package:flutter_prj_1/Loginscreen.dart';
+import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 
 class drawersrc extends StatelessWidget {
   const drawersrc({Key? key}) : super(key: key);
@@ -44,6 +43,16 @@ class drawersrc extends StatelessWidget {
                   Icons.edit_calendar,
                   color: Colors.blue,
                 ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => home()));
+              },
+              child: ListTile(
+                title: Text("Notification"),
+                leading: Icon(Icons.notifications, color: Colors.cyan.shade300),
               ),
             ),
             InkWell(

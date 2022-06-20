@@ -53,9 +53,7 @@ class Auth_vrfy extends StatelessWidget {
                         ),
                         onChanged: (value) {
                           if (value.length == 1) {
-                            //FocusScope.of(context).nextFocus();
                             focus2.requestFocus();
-                            //TextInputAction.next;
                           }
                         },
                         style: Theme.of(context).textTheme.headline6,

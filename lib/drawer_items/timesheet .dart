@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prj_1/Drawer_scr.dart';
-import 'package:flutter_prj_1/Loginscreen.dart';
+import 'package:flutter_prj_1/common_moul/Drawer_scr.dart';
 import 'package:flutter_prj_1/imgslide.dart';
 
-class home extends StatelessWidget {
-  const home({Key? key}) : super(key: key);
+class timeSheet extends StatelessWidget {
+  // const home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,6 @@ class home extends StatelessWidget {
             title: Text("Home Page"),
             centerTitle: true,
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
               IconButton(
                 onPressed: () {
                   Navigator.of(context).popAndPushNamed('/');

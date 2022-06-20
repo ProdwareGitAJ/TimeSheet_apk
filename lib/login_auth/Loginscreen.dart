@@ -2,7 +2,6 @@
 
 // ignore_for_file: unnecessary_const
 import 'package:flutter/material.dart';
-import 'package:flutter_prj_1/Homescreen.dart';
 
 void main() {
   runApp(login_screen());
@@ -27,7 +26,7 @@ class login_screen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(),
+                padding: const EdgeInsets.only(top: 18),
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(11)),

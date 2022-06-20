@@ -12,6 +12,7 @@ class app_bar extends StatelessWidget {
       title: Text(appbar_title),
       centerTitle: true,
       actions: [
+        IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
         IconButton(
           onPressed: () {
             Navigator.of(context).popAndPushNamed('/');

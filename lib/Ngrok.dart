@@ -1,0 +1,98 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+void main() => runApp(ngrok());
+
+class ngrok extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+//Creating a class user to store the data;
+class User {
+  final int id;
+  final String name;
+  final String surname;
+
+  User({
+    required this.id,
+    required this.name,
+    required this.surname,
+  });
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+//Applying get request.
+
+  Future<List<User>> getRequest() async {
+    //replace your restFull API here.
+    String url = "https://5f8f-114-79-159-250.in.ngrok.io/findAllidpass";
+    final response = await http.get(Uri.parse(url));
+
+    var responseData = json.decode(response.body);
+
+    //Creating a list to store input data;
+    List<User> users = [];
+    for (var singleUser in responseData) {
+      User user = User(
+        id: singleUser["id"],
+        name: singleUser["name"],
+        surname: singleUser["surname"],
+      );
+
+      //Adding user to the list.
+      users.add(user);
+    }
+    return users;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Http Get Request."),
+          leading: Icon(
+            Icons.get_app,
+          ),
+        ),
+        body: Container(
+          padding: EdgeInsets.all(16.0),
+          child: FutureBuilder(
+            future: getRequest(),
+            builder: (BuildContext ctx, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return Container(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              } else {
+                return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (ctx, index) => ListTile(
+                          title: Text(snapshot.data[index].name +
+                              "\t" +
+                              snapshot.data[index].surname +
+                              "\t" +
+                              snapshot.data[index].id.toString()),
+                        ));
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

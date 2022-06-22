@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/common_moul/Drawer_scr.dart';
+import 'package:flutter_prj_1/common_moul/appbar.dart';
 import 'package:flutter_prj_1/imgslide.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class timeSheet extends StatelessWidget {
   // const home({Key? key}) : super(key: key);
@@ -10,28 +12,47 @@ class timeSheet extends StatelessWidget {
     return (MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            title: Text("Timesheet"),
-            centerTitle: true,
-            actions: [
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context).popAndPushNamed('/');
-                },
-                icon: Icon(
-                  Icons.power_settings_new,
-                  color: Colors.red.shade700,
-                ),
-              ),
-            ],
-          ),
+          appBar: PreferredSize(
+              preferredSize: Size.fromHeight(51), child: app_bar("Timesheet")),
           drawer: drawersrc(),
           body: SingleChildScrollView(
             child: Column(
               children: [
-                Card(
-                  color: Colors.grey,
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: SfCalendar(
+                    view: CalendarView.week,
+                  ),
                 ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    child: Column(
+                  children: [
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width * .9,
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.green.shade300)),
+                            onPressed: (() {}),
+                            child: Text("IN TIME"))),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .9,
+                      child: ElevatedButton(
+                          onPressed: (() {}), child: Text("ADD BREAK")),
+                    ),
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width * .9,
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.redAccent.shade200)),
+                            onPressed: (() {}),
+                            child: Text("TIME OUT")))
+                  ],
+                )),
               ],
             ),
           )),

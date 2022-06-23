@@ -25,12 +25,13 @@ class timeSheet extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 25,
                 ),
                 Container(
                     child: Column(
                   children: [
                     SizedBox(
+                        height: 50,
                         width: MediaQuery.of(context).size.width * .9,
                         child: ElevatedButton(
                             style: ButtonStyle(
@@ -39,11 +40,19 @@ class timeSheet extends StatelessWidget {
                             onPressed: (() {}),
                             child: Text("IN TIME"))),
                     SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      height: 50,
                       width: MediaQuery.of(context).size.width * .9,
                       child: ElevatedButton(
                           onPressed: (() {}), child: Text("ADD BREAK")),
                     ),
                     SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                        height: 50,
                         width: MediaQuery.of(context).size.width * .9,
                         child: ElevatedButton(
                             style: ButtonStyle(

@@ -39,6 +39,7 @@ dependencies:
   http: ^0.13.4
   syncfusion_flutter_calendar: ^20.1.61
   table_calendar: ^3.0.6
+  badges: ^2.0.3
 
 dev_dependencies:
   flutter_test:

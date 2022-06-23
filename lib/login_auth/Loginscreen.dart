@@ -2,6 +2,7 @@
 
 // ignore_for_file: unnecessary_const
 import 'package:flutter/material.dart';
+import '../login_auth/verify.dart';
 
 void main() {
   runApp(login_screen());
@@ -65,7 +66,11 @@ class login_screen extends StatelessWidget {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).popAndPushNamed('/auth_vrfy');
+                          //use this navigation !!!
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) => new Auth_vrfy()));
                         },
                         child: Text("Log-in")),
                     SizedBox(

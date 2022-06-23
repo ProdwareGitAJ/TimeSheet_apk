@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 
 class Auth_vrfy extends StatelessWidget {
   //const Auth_vrfy({Key? key}) : super(key: key);
@@ -162,7 +163,8 @@ class Auth_vrfy extends StatelessWidget {
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white)),
                 onPressed: () {
-                  Navigator.of(context).popAndPushNamed('/home');
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) => new home()));
                 },
                 child: Text(
                   "Log-in",

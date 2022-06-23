@@ -1,9 +1,9 @@
-import 'dart:io';
-
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 import 'package:flutter_prj_1/login_auth/Loginscreen.dart';
+import 'package:flutter_prj_1/login_auth/verify.dart';
 import 'nav.dart';
 
 class app_bar extends StatelessWidget {
@@ -17,12 +17,17 @@ class app_bar extends StatelessWidget {
       title: Text(appbar_title),
       centerTitle: true,
       actions: [
-        IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.grey.shade200,
-            )),
+        Badge(
+          badgeContent: Text("12"),
+          child: Icon(
+            Icons.notifications,
+            size: 30,
+          ),
+          badgeColor: Colors.green,
+          position: BadgePosition.topEnd(top: 0, end: 3),
+          borderRadius: BorderRadius.circular(1),
+          showBadge: true,
+        ),
         IconButton(
           onPressed: () {
             // ALERTBOX TO EXIT
@@ -31,14 +36,17 @@ class app_bar extends StatelessWidget {
               builder: (BuildContext context) {
                 return AlertDialog(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(25.0))),
-                  title: Text("DO YOU WANT TO EXIT??"),
-                  content: Text("Are you trying to exit."),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  title: Text("DO YOU WANT TO LOGOUT?"),
+                  content: Text("Are you trying to Logout?."),
                   actions: [
                     TextButton(
                       child: Text("YES"),
                       onPressed: () {
-                        exit(0);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => login_screen()));
                       },
                     ),
                     TextButton(

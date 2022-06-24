@@ -1,98 +1,111 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
-void main() => runApp(ngrok());
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-class ngrok extends StatelessWidget {
+  static const String _title = 'Sample App';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const MyStatefulWidget(),
+      ),
     );
   }
 }
 
-//Creating a class user to store the data;
-class User {
-  final int id;
-  final String name;
-  final String surname;
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
 
-  User({
-    required this.id,
-    required this.name,
-    required this.surname,
-  });
-}
-
-class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
-class _HomePageState extends State<HomePage> {
-//Applying get request.
-
-  Future<List<User>> getRequest() async {
-    //replace your restFull API here.
-    String url = "https://5f8f-114-79-159-250.in.ngrok.io/findAllidpass";
-    final response = await http.get(Uri.parse(url));
-
-    var responseData = json.decode(response.body);
-
-    //Creating a list to store input data;
-    List<User> users = [];
-    for (var singleUser in responseData) {
-      User user = User(
-        id: singleUser["id"],
-        name: singleUser["name"],
-        surname: singleUser["surname"],
-      );
-
-      //Adding user to the list.
-      users.add(user);
-    }
-    return users;
-  }
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Http Get Request."),
-          leading: Icon(
-            Icons.get_app,
-          ),
-        ),
-        body: Container(
-          padding: EdgeInsets.all(16.0),
-          child: FutureBuilder(
-            future: getRequest(),
-            builder: (BuildContext ctx, AsyncSnapshot snapshot) {
-              if (snapshot.data == null) {
-                return Container(
-                  child: Center(
-                    child: CircularProgressIndicator(),
+    return Padding(
+        padding: const EdgeInsets.all(10),
+        child: ListView(
+          children: <Widget>[
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  'Test',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30),
+                )),
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  'Log-in',
+                  style: TextStyle(fontSize: 20),
+                )),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: nameController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'User Name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                //forgot password screen
+              },
+              child: const Text(
+                'Forgot Password',
+              ),
+            ),
+            Container(
+                height: 50,
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: ElevatedButton(
+                  child: const Text('Login'),
+                  onPressed: () {
+                    print(nameController.text);
+                    print(passwordController.text);
+                  },
+                )),
+            Row(
+              children: <Widget>[
+                const Text('Does not have account?'),
+                TextButton(
+                  child: const Text(
+                    'Sign in',
+                    style: TextStyle(fontSize: 20),
                   ),
-                );
-              } else {
-                return ListView.builder(
-                    itemCount: snapshot.data.length,
-                    itemBuilder: (ctx, index) => ListTile(
-                          title: Text(snapshot.data[index].name +
-                              "\t" +
-                              snapshot.data[index].surname +
-                              "\t" +
-                              snapshot.data[index].id.toString()),
-                        ));
-              }
-            },
-          ),
-        ),
-      ),
-    );
+                  onPressed: () {
+                    //signup screen
+                  },
+                )
+              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+          ],
+        ));
   }
 }

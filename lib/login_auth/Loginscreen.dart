@@ -1,5 +1,6 @@
 // import 'dart:ffi';
-
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 // ignore_for_file: unnecessary_const
 import 'package:flutter/material.dart';
 import '../login_auth/verify.dart';
@@ -9,7 +10,15 @@ void main() {
 }
 
 // ignore: camel_case_types
-class login_screen extends StatelessWidget {
+class login_screen extends StatefulWidget {
+  @override
+  State<login_screen> createState() => _login_screenState();
+}
+
+final U_id = TextEditingController();
+final _pass = TextEditingController();
+
+class _login_screenState extends State<login_screen> {
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
@@ -41,17 +50,20 @@ class login_screen extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: U_id,
                         decoration: const InputDecoration(
                             icon: Icon(
                               Icons.person,
                               color: Colors.grey,
                             ),
-                            hintText: "User name",
+                            hintText: "User ID",
                             labelText: "ID")),
                     SizedBox(
                       height: 10,
                     ),
                     TextFormField(
+                      controller: _pass,
                       decoration: const InputDecoration(
                           icon: Icon(
                             Icons.lock,
@@ -66,7 +78,6 @@ class login_screen extends StatelessWidget {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          //use this navigation !!!
                           Navigator.push(
                               context,
                               new MaterialPageRoute(
@@ -87,4 +98,31 @@ class login_screen extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: Colors.blue),
     ));
   }
+}
+
+Future<String> chk_usr() async {
+  //var map = {"id": int.parse(U_id.text), "passwd": _pass.text};
+  var map = {"id": 1, "passwd": "Joshi"};
+  print(map["passwd"].runtimeType);
+  //print(map);
+  final body = json.encode(map);
+  //final response = false;
+  try {
+    final response = await http.post(
+        Uri.parse("https://2689-182-72-11-106.in.ngrok.io/loginCheck"),
+        body: body,
+        headers: {"Content-Type": "application/json"});
+    final responseData = json.decode(response.body);
+
+    if (response.body.toString() == "true") {
+      print(response.toString());
+      return "true";
+    } else {
+      print(responseData.body.runtimeType);
+      return "false";
+    }
+  } catch (error) {
+    print("error");
+  }
+  return "false";
 }

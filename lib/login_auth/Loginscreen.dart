@@ -112,13 +112,13 @@ Future<String> chk_usr() async {
         Uri.parse("https://2689-182-72-11-106.in.ngrok.io/loginCheck"),
         body: body,
         headers: {"Content-Type": "application/json"});
-    final responseData = json.decode(response.body);
+    //final responseData = json.encode(response.body);
 
-    if (response.body.toString() == "true") {
-      print(response.toString());
+    if (response == "true") {
+      print(response);
       return "true";
     } else {
-      print(responseData.body.runtimeType);
+      print(response);
       return "false";
     }
   } catch (error) {

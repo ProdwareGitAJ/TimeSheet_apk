@@ -19,62 +19,90 @@ class home extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  height: 230,
+                  height: 250,
                   child: slideimg(),
                 ),
                 Container(
                     width: double.infinity,
-                    height: 155,
+                    height: 85,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Card(
-                        child: Center(child: Text("Current Employees")),
-                        semanticContainer: true,
-                        color: Colors.orange.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                        child: ListTile(
+                          title: Text("Current Employees"),
+                          leading: Icon(
+                            Icons.person,
+                            size: 35,
+                          ),
+                          tileColor: Colors.lightGreen,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          onTap: () {
+                            print("pressed on employee......");
+                          },
                         ),
                       ),
                     )),
                 Container(
                     width: double.infinity,
-                    height: 155,
+                    height: 85,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
-                        child: Center(child: Text("Employees Leaves Summry")),
-                        semanticContainer: true,
-                        color: Colors.blue.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                        child: ListTile(
+                          title: Text("Current Employees"),
+                          leading: Icon(
+                            Icons.person,
+                            size: 35,
+                          ),
+                          tileColor: Colors.limeAccent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          onTap: () {
+                            print("pressed on employee......");
+                          },
                         ),
                       ),
                     )),
                 Container(
                     width: double.infinity,
-                    height: 155,
+                    height: 85,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
-                        child: Center(child: Text("Ethnic Codes")),
-                        semanticContainer: true,
-                        color: Colors.green.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                        child: ListTile(
+                          title: Text("Current Employees"),
+                          leading: Icon(
+                            Icons.person,
+                            size: 35,
+                          ),
+                          tileColor: Colors.cyan,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          onTap: () {
+                            print("pressed on employee......");
+                          },
                         ),
                       ),
                     )),
                 Container(
                     width: double.infinity,
-                    height: 155,
+                    height: 85,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
-                        child: Center(child: Text("Approved Requisitions")),
-                        semanticContainer: true,
-                        color: Colors.yellow.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                        child: ListTile(
+                          title: Text("Current Employees"),
+                          leading: Icon(
+                            Icons.person,
+                            size: 35,
+                          ),
+                          tileColor: Colors.orangeAccent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          onTap: () {
+                            print("pressed on employee......");
+                          },
                         ),
                       ),
                     )),

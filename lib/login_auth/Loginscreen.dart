@@ -1,9 +1,11 @@
 // import 'dart:ffi';
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 // ignore_for_file: unnecessary_const
 import 'package:flutter/material.dart';
 import '../login_auth/verify.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(login_screen());
@@ -50,7 +52,6 @@ class _login_screenState extends State<login_screen> {
                           fontWeight: FontWeight.bold),
                     ),
                     TextFormField(
-                        keyboardType: TextInputType.number,
                         controller: U_id,
                         decoration: const InputDecoration(
                             icon: Icon(
@@ -77,11 +78,22 @@ class _login_screenState extends State<login_screen> {
                       height: 5,
                     ),
                     ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              new MaterialPageRoute(
-                                  builder: (context) => new Auth_vrfy()));
+                        onPressed: () async {
+                          if (await chk_usr()) {
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => new Auth_vrfy()));
+                          } else {
+                            Fluttertoast.showToast(
+                                msg: "Invalid User-ID or Password!",
+                                toastLength: Toast.LENGTH_LONG,
+                                gravity: ToastGravity.BOTTOM,
+                                backgroundColor: Colors.grey.shade300,
+                                textColor: Colors.black,
+                                fontSize: 16.0);
+                            print("hello");
+                          }
                         },
                         child: Text("Log-in")),
                     SizedBox(
@@ -89,7 +101,7 @@ class _login_screenState extends State<login_screen> {
                     )
                   ]),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -100,29 +112,36 @@ class _login_screenState extends State<login_screen> {
   }
 }
 
-Future<String> chk_usr() async {
-  //var map = {"id": int.parse(U_id.text), "passwd": _pass.text};
-  var map = {"id": 1, "passwd": "Joshi"};
-  print(map["passwd"].runtimeType);
-  //print(map);
-  final body = json.encode(map);
-  //final response = false;
+Future<bool> chk_usr() async {
+  var map = {"id": U_id.text, "passwd": _pass.text};
+  final body1 = json.encode(map);
   try {
     final response = await http.post(
-        Uri.parse("https://2689-182-72-11-106.in.ngrok.io/loginCheck"),
-        body: body,
-        headers: {"Content-Type": "application/json"});
-    //final responseData = json.encode(response.body);
+      Uri.parse('https://8362-182-72-11-106.in.ngrok.io/loginCheck'),
+      headers: {'Content-Type': 'application/json'},
+      body: body1,
+    );
+    apires resp = apires.fromJson(jsonDecode(response.body));
+    print(resp.apiStatus);
+    //return (true);
 
-    if (response == "true") {
-      print(response);
-      return "true";
-    } else {
-      print(response);
-      return "false";
-    }
+    return (resp.apiStatus);
   } catch (error) {
-    print("error");
+    print(error);
   }
-  return "false";
+  return false;
+}
+
+class apires {
+  final bool apiStatus;
+  final String msg;
+
+  const apires({required this.apiStatus, required this.msg});
+
+  factory apires.fromJson(Map<String, dynamic> json) {
+    return apires(
+      apiStatus: json['apiStatus'],
+      msg: json['message'],
+    );
+  }
 }

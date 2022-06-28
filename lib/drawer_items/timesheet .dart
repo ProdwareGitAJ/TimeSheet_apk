@@ -9,27 +9,14 @@ class timeSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          appBar: PreferredSize(
-              preferredSize: Size.fromHeight(51), child: app_bar("Timesheet")),
-          drawer: drawersrc(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(0.0),
-                  child: SfCalendar(
-                    view: CalendarView.week,
-                  ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-              ],
-            ),
-          )),
-    ));
+    return (Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(51), child: app_bar("Timesheet")),
+        drawer: const drawersrc(),
+        body: SfCalendar(
+          view: CalendarView.month,
+          firstDayOfWeek: 1,
+          cellBorderColor: Colors.transparent,
+        )));
   }
 }

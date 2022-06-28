@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
+import 'package:flutter_prj_1/drawer_items/leaves_scr.dart';
 import 'package:flutter_prj_1/drawer_items/notification_scr.dart';
 import 'package:flutter_prj_1/drawer_items/timesheet%20.dart';
 
@@ -64,6 +65,10 @@ class drawersrc extends StatelessWidget {
               ),
             ),
             InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => leaves_Src()));
+              },
               child: const ListTile(
                 title: Text("Service"),
                 leading: Icon(

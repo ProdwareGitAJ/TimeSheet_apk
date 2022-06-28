@@ -19,6 +19,7 @@ class login_screen extends StatefulWidget {
 
 final U_id = TextEditingController();
 final _pass = TextEditingController();
+bool _isObsecure = true;
 
 class _login_screenState extends State<login_screen> {
   @override
@@ -64,15 +65,29 @@ class _login_screenState extends State<login_screen> {
                       height: 10,
                     ),
                     TextFormField(
+                      obscureText: _isObsecure,
                       controller: _pass,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
+                        icon: Icon(
+                          Icons.lock,
+                          color: Colors.grey,
+                        ),
+                        hintText: "Password",
+                        labelText: "passcode",
+                        suffixIcon: IconButton(
                           icon: Icon(
-                            Icons.lock,
+                            _isObsecure
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                             color: Colors.grey,
                           ),
-                          hintText: "Password",
-                          labelText: "passcode"),
-                      obscureText: true,
+                          onPressed: () {
+                            setState(() {
+                              _isObsecure = !_isObsecure;
+                            });
+                          },
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 5,
@@ -92,7 +107,7 @@ class _login_screenState extends State<login_screen> {
                                 backgroundColor: Colors.grey.shade300,
                                 textColor: Colors.black,
                                 fontSize: 16.0);
-                            print("hello");
+                            //print("hello");
                           }
                         },
                         child: Text("Log-in")),
@@ -113,18 +128,16 @@ class _login_screenState extends State<login_screen> {
 }
 
 Future<bool> chk_usr() async {
-  var map = {"id": U_id.text, "passwd": _pass.text};
+  var map = {"userId": U_id.text, "passwd": _pass.text};
   final body1 = json.encode(map);
+  //print(body1);
   try {
     final response = await http.post(
-      Uri.parse('https://8362-182-72-11-106.in.ngrok.io/loginCheck'),
+      Uri.parse('https://1a0a-182-72-11-106.in.ngrok.io/loginCheck'),
       headers: {'Content-Type': 'application/json'},
       body: body1,
     );
     apires resp = apires.fromJson(jsonDecode(response.body));
-    print(resp.apiStatus);
-    //return (true);
-
     return (resp.apiStatus);
   } catch (error) {
     print(error);

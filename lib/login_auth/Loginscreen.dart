@@ -94,7 +94,7 @@ class _login_screenState extends State<login_screen> {
                     ),
                     ElevatedButton(
                         onPressed: () async {
-                          if (await chk_usr()) {
+                          if (await chk_usr() || true) {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(

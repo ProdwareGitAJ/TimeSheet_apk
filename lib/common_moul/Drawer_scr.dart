@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prj_1/drawer_items/Profile_pg.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 import 'package:flutter_prj_1/drawer_items/leaves_scr.dart';
 import 'package:flutter_prj_1/drawer_items/notification_scr.dart';
@@ -19,12 +20,29 @@ class drawersrc extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Center(
-                  child: Icon(
-                Icons.account_circle,
-                size: 150,
-                color: Colors.cyan.shade100,
-              )),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: CircleAvatar(
+                      radius: 50.0,
+                      child: ClipRRect(
+                        child: Center(
+                            child: Image.asset('Assets/images/logi.png')),
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4, top: 0),
+                    child: Text(
+                      "EMPP09\nHEMANTKUMAR PAL",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+                ],
+              ),
             ),
             InkWell(
               onTap: () {
@@ -87,6 +105,10 @@ class drawersrc extends StatelessWidget {
               ),
             ),
             InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => profileSrc()));
+              },
               child: const ListTile(
                 title: Text("Profile"),
                 leading: Icon(

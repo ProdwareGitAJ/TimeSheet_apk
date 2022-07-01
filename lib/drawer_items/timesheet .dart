@@ -16,7 +16,7 @@ class timeSheet extends StatelessWidget {
         body: SfCalendar(
           view: CalendarView.month,
           firstDayOfWeek: 1,
-          cellBorderColor: Colors.transparent,
+          cellBorderColor: Colors.blue.shade900,
         )));
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_prj_1/drawer_items/Profile_pg.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 import 'package:flutter_prj_1/common_moul/nav.dart';
 import 'package:flutter_prj_1/common_moul/Drawer_scr.dart';
+import 'package:flutter_prj_1/drawer_items/edit_Prof.dart';
 import 'package:flutter_prj_1/imgslide.dart';
 import 'dart:io';
 
@@ -26,7 +27,7 @@ class projx extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: nav(),
+      home: edit_ProfileSrc(),
     );
   }
 }

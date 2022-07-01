@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prj_1/drawer_items/Profile_pg.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 import 'package:flutter_prj_1/drawer_items/leaves_scr.dart';
 import 'package:flutter_prj_1/drawer_items/timesheet%20.dart';
@@ -18,7 +19,8 @@ class nav extends StatelessWidget {
         '/home': (context) => home(),
         '/auth_vrfy': (context) => Auth_vrfy(),
         '/timesheet': (context) => timeSheet(),
-        '/leaves_src': (context) => leaves_Src()
+        '/leaves_src': (context) => leaves_Src(),
+        '/profile_src': (context) => profileSrc()
       },
     ));
   }

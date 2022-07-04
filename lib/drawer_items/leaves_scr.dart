@@ -17,7 +17,7 @@ class _leaves_SrcState extends State<leaves_Src> {
     'ADMINISTRATIVE'
   ];
 
-  var valueChoose;
+  String valueChoose = "SICK LEAVE";
 
   @override
   Widget build(BuildContext context) {
@@ -38,16 +38,18 @@ class _leaves_SrcState extends State<leaves_Src> {
                         child: Text("Ad Details"),
                       ),
                       DropdownButton(
-                          hint: Text("Select Leave"),
-                          style: TextStyle(color: Colors.black),
                           value: valueChoose,
-                          onChanged: (newValue) {
-                            setState((() => valueChoose = newValue));
-                          },
-                          items: listItems.map((valueItems) {
-                            return DropdownMenuItem<String>(
-                                value: valueItems, child: Text(valueItems));
-                          }).toList())
+                          items: listItems
+                              .map((e) => DropdownMenuItem(
+                                    child: Text(e),
+                                    value: e,
+                                  ))
+                              .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              valueChoose = value.toString();
+                            });
+                          })
                     ],
                   ),
                   actions: [

@@ -3,6 +3,7 @@ import 'package:flutter_prj_1/drawer_items/Profile_pg.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 import 'package:flutter_prj_1/drawer_items/leaves_scr.dart';
 import 'package:flutter_prj_1/drawer_items/notification_scr.dart';
+import 'package:flutter_prj_1/drawer_items/ticket.dart';
 import 'package:flutter_prj_1/drawer_items/timesheet%20.dart';
 
 class drawersrc extends StatelessWidget {
@@ -96,6 +97,10 @@ class drawersrc extends StatelessWidget {
               ),
             ),
             InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ticket_Rais()));
+              },
               child: const ListTile(
                 title: Text("Ticket Raise"),
                 leading: Icon(

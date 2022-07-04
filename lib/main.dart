@@ -27,7 +27,7 @@ class projx extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: edit_ProfileSrc(),
+      home: nav(),
     );
   }
 }

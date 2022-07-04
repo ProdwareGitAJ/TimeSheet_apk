@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_prj_1/drawer_items/Profile_pg.dart';
 import 'package:flutter_prj_1/drawer_items/dashboard.dart';
 import 'package:flutter_prj_1/drawer_items/leaves_scr.dart';
+import 'package:flutter_prj_1/drawer_items/ticket.dart';
 import 'package:flutter_prj_1/drawer_items/timesheet%20.dart';
 import '../login_auth/Loginscreen.dart';
 import '../login_auth/verify.dart';
@@ -20,7 +21,8 @@ class nav extends StatelessWidget {
         '/auth_vrfy': (context) => Auth_vrfy(),
         '/timesheet': (context) => timeSheet(),
         '/leaves_src': (context) => leaves_Src(),
-        '/profile_src': (context) => profileSrc()
+        '/profile_src': (context) => profileSrc(),
+        '/ticketRais': (context) => ticket_Rais()
       },
     ));
   }
